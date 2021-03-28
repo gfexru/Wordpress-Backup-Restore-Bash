@@ -3,7 +3,7 @@
 #
 # Bash script for creating backups of Wordpress.
 #
-# Version 0.1.0
+# Version 0.1.1
 #
 # Usage:
 # 	- With backup directory specified in the script:  ./WordpressBackup.sh
@@ -99,7 +99,7 @@ echo
 # Backup file directory
 #
 echo "Creating backup of Wordpress file directory..."
-tar -cpzf "${backupdir}/${fileNameBackupFileDir}" -C "${wordpressFileDir}" .
+tar -I pigz -cpf "${backupdir}/${fileNameBackupFileDir}" -C "${wordpressFileDir}" .
 echo "Done"
 echo
 

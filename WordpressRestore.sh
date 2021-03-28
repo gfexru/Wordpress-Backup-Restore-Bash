@@ -3,7 +3,7 @@
 #
 # Bash script for restoring backups of Wordpress.
 #
-# Version 0.1.0
+# Version 0.1.1
 #
 # Usage:
 #   - With backup directory specified in the script: ./WordpressRestore.sh <BackupName> (e.g. ./WordpressRestore.sh 20170910_132703)
@@ -120,7 +120,7 @@ echo
 
 # File directory
 echo "Restoring Wordpress file directory..."
-tar -xmpzf "${currentRestoreDir}/${fileNameBackupFileDir}" -C "${wordpressFileDir}"
+tar -I pigz -xmpf "${currentRestoreDir}/${fileNameBackupFileDir}" -C "${wordpressFileDir}"
 echo "Done"
 echo
 
